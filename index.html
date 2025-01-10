@@ -1,0 +1,406 @@
+<!-- creator - VEDANT SAHU -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Priyanshi Nanakwani</title>
+  <style>
+    * {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+      font-size: 20px;
+      
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: ;
+    }
+
+    body {
+      background-color: lightsteelblue;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      box-shadow: "0px 4px 4px 0px #00000040,inset 0 0 0 1000px rgba(0,0,0,.5)"
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      width: 98%;
+      height: 650px;
+      margin-top: 100px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .item {
+      width: 200px;
+      height: 300px;
+      list-style-type: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      background-position: center;
+      background-size: cover;
+      border-radius: 20px;
+      box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset;
+      transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 1;
+      }
+
+      &:nth-child(3) {
+        left: 50%;
+      }
+
+      &:nth-child(4) {
+        left: calc(50% + 220px);
+      }
+
+      &:nth-child(5) {
+        left: calc(50% + 440px);
+      }
+
+      &:nth-child(6) {
+        left: calc(50% + 660px);
+        opacity: 0;
+      }
+    }
+
+    .content {
+      width: min(30vw, 400px);
+      position: absolute;
+      top: 50%;
+      left: 3rem;
+      transform: translateY(-50%);
+      font: 400 0.85rem helvetica, sans-serif;
+      color: white;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      padding: 10px;
+      text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      display: none;
+
+      & .title {
+        font-family: 'arial-black';
+        text-transform: uppercase;
+      }
+
+      & .description {
+        line-height: 1.7;
+        margin: 1rem 0 1.5rem;
+        font-size: 0.8rem;
+      }
+
+      & button {
+        width: fit-content;
+        background-color: rgba(0, 0, 0, 0.1);
+        color: white;
+        border: 2px solid white;
+        border-radius: 0.25rem;
+        padding: 0.75rem;
+        cursor: pointer;
+      }
+    }
+
+    .item:nth-of-type(2) .content {
+      display: block;
+      animation: show 0.75s ease-in-out 0.3s forwards;
+    }
+
+    @keyframes show {
+      0% {
+        filter: blur(5px);
+        transform: translateY(calc(-50% + 75px));
+      }
+
+      100% {
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+
+    .nav {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      user-select: none;
+
+      & .btn {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: rgba(0, 0, 0, 0.7);
+        border: 2px solid rgba(0, 0, 0, 0.6);
+        margin: 0 0.25rem;
+        padding: 0.75rem;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+
+    @media (width > 650px) and (width < 900px) {
+      .content {
+        & .title {
+          font-size: 1rem;
+        }
+
+        & .description {
+          font-size: 0.7rem;
+        }
+
+        & button {
+          font-size: 0.7rem;
+        }
+      }
+
+      .item {
+        width: 160px;
+        height: 270px;
+
+        &:nth-child(3) {
+          left: 50%;
+        }
+
+        &:nth-child(4) {
+          left: calc(50% + 170px);
+        }
+
+        &:nth-child(5) {
+          left: calc(50% + 340px);
+        }
+
+        &:nth-child(6) {
+          left: calc(50% + 510px);
+          opacity: 0;
+        }
+      }
+    }
+
+    @media (width < 650px) {
+      .content {
+        & .title {
+          font-size: 0.9rem;
+        }
+
+        & .description {
+          font-size: 0.65rem;
+        }
+
+        & button {
+          font-size: 0.7rem;
+        }
+      }
+
+      .item {
+        width: 130px;
+        height: 220px;
+
+        &:nth-child(3) {
+          left: 50%;
+        }
+
+        &:nth-child(4) {
+          left: calc(50% + 140px);
+        }
+
+        &:nth-child(5) {
+          left: calc(50% + 280px);
+        }
+
+        &:nth-child(6) {
+          left: calc(50% + 420px);
+          opacity: 0;
+        }
+      }
+    }
+
+    .audio1 {
+      margin-top: 55px;
+      height: 50px;
+    }
+
+    #audio-player {
+      width: 300px;
+      height: 50px;
+      background-color: floralwhite;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    #audio-player::-webkit-media-controls-play-button {
+      background-color: cornflowerblue;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #audio-player::-webkit-media-controls-timeline {
+      background-color: floralwhite;
+      height: 10px;
+      border-radius: 10px;
+    }
+
+    #audio-player::-webkit-media-controls-volume-slider {
+      background-color: floralwhite {}
+
+      ;
+      width: 50px;
+      height: 10px;
+      border-radius: 10px;
+    }
+
+    #audio-player1 {
+      width: 300px;
+      height: 50px;
+      background-color: floralwhite;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    #audio-player1::-webkit-media-controls-play-button {
+      background-color: cornflowerblue;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #audio-player1::-webkit-media-controls-timeline {
+      background-color: floralwhite;
+      height: 10px;
+      border-radius: 10px;
+    }
+
+    #audio-player1::-webkit-media-controls-volume-slider {
+      background-color: floralwhite;
+      width: 50px;
+      height: 10px;
+      border-radius: 10px;
+    }
+    .order {
+      margin-top: 10px;
+      font-family: cursive;
+      font-size: 24px;
+      letter-spacing: 2px;
+      word-spacing: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h3 class="order">Play this first ▶️ <br> & then scroll down <br>
+  & click next ➡️</h3>
+  <audio id="audio-player" class="audio1" src="https://dl.dropboxusercontent.com/scl/fi/olccr40zw0rca0yvdicwi/Chaar_Kadam-2-2-2.mp3?rlkey=7wkftuftbsea5ehfly17ioc6o&dl=0" controls></audio>
+  <main>
+    <ul class='slider'>
+      <li class='item' style="background-image: url('https://dl.dropboxusercontent.com/scl/fi/4s0uwgqmo21x80kiud2zq/Tell-me-I-m-your-national-anthem_10.jpg?rlkey=pk1fn0isxh288tixr9rovqfgh&dl=0')">
+        <div class='content'>
+          <h2 class='title'>My Request</h2>
+          <p class='description'>
+            I didn't done anything wrong & u blocked me for no reason, Unblock Me Please 🙏.
+          </p>
+
+        </div>
+      </li>
+      <li class='item' style="background-image: url('https://dl.dropboxusercontent.com/scl/fi/oeqvzfi0mhge5davzxgqz/Talk-to-me-in-songs-and-poems_14.webp?rlkey=ezqnb9bx3cxo3luc40zfdjfce&dl=0')">
+        <div class='content'>
+          <h2 class='title'>Your Eyes...!</h2>
+          <p class='description'> There is something special in your Eyes, Because whenever I look at your eyes, I just keep getting lost in your eyes ✨</p>
+
+        </div>
+      </li>
+      <li class='item' style="background-image: url('https://dl.dropboxusercontent.com/scl/fi/44b5ayitk9pqxaykm4yfr/pretty-times_13.jpg?rlkey=nu2bhf3ye6zhnkie6fwe415dv&dl=0')">
+        <div class='content'>
+          <h2 class='title'>You are Magical</h2>
+          <p class='description'>
+          Whenever I think about you, I starts smiling 😇.If beauty were a crime, you'd be serving a life sentence.
+          </p>
+
+        </div>
+      </li>
+      <li class='item' style="background-image: url('https://dl.dropboxusercontent.com/scl/fi/24ax4kii40pvvvftlafpr/Desi-flexin-ethnicwear-desifashion-foryo_17.jpg?rlkey=fz28fjtwyyjqc07kxfyav61d7&dl=0')">
+        <div class='content'>
+          <h2 class='title'></h2>HAPPY BIRTHDAY 💝
+          <p class='description'>
+असली चीज तो भूल ही गया 🥴,Happy Birthday,this day is special for u so be Happy ☺️ 
+          </p>
+
+        </div>
+      </li>
+      <li class='item' style="background-image: url('https://dl.dropboxusercontent.com/scl/fi/mmhlsjtgz05tlbt68ansk/It-s-okay-You-just-forgot-who-you-are-We_56.jpg?rlkey=k6pql84l0httmxqdq3bj5siwd&dl=0')">
+        <div class='content'>
+          <h2 class='title'>Wordless</h2>
+          <p class='description'>
+            I never met with you, so I don't know much about u, so don't have much words.
+          </p>
+
+        </div>
+      </li>
+
+
+    </ul>
+    <nav class='nav'>
+      <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
+      <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
+    </nav>
+  </main>
+  
+  <h3 class="order" >here's another one</h3>
+<br>
+  <audio id="audio-player1" class="audio2" src="https://dl.dropboxusercontent.com/scl/fi/ojg2baxgqic0dpl6dzonu/Main_Koi_Aisa_Geet_Gaoon_trim1-2.mp3?rlkey=47psp59vuupc9tmckwgsm28qh&dl=0" controls></audio>
+
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- partial -->
+  <script>
+    const slider = document.querySelector('.slider');
+
+    function activate(e) {
+      const items = document.querySelectorAll('.item');
+      e.target.matches('.next') && slider.append(items[0]);
+      e.target.matches('.prev') && slider.append(items[items.ngth - 1]);
+    }
+    document.addEventListener('click', activate, false);
+    const audioPlayer = document.getElementById('audio-player');
+
+    // Add event listeners to the play button
+    audioPlayer.addEventListener('play', () => {
+      console.log('Audio is playing');
+    });
+
+    audioPlayer.addEventListener('pause', () => {
+      console.log('Audio is paused');
+    });
+
+    // Add event listener to the volume slider
+    audioPlayer.addEventListener('volumechange', () => {
+      console.log('Volume changed');
+    });
+  </script>
+</body>
+
+</html> 
+<!--created by VEDANT SAHU with......-->
